@@ -49,7 +49,7 @@
 % Dependences
 %A Few Useful Packages
 \RequirePackage[frenchb]{babel}
-\RequirePackage[utf8]{luainputenc}
+%\RequirePackage[utf8]{luainputenc}  % luatex
 \RequirePackage{fontspec} 					                 % for loading fonts
 \RequirePackage{url,parskip} 	    % other packages for formatting
 \RequirePackage[usenames,dvipsnames]{xcolor}
@@ -64,9 +64,12 @@
 \RequirePackage{etoolbox}
 \RequirePackage{tikz}
 \RequirePackage[skins]{tcolorbox}
+\RequirePackage{listings}
+\RequirePackage{bookmark}
 
 
-\DeclareUnicodeCharacter{00E9}{\'{e}}
+% \DeclareUnicodeCharacter{00E9}{\'{e}}  %luatex
+
 % Define default accent colors
 \definecolor{basecolor}{HTML}{000066}       %BLUE
 
@@ -152,6 +155,7 @@
 \newcommand{\linkedinSymbol}{\faLinkedin}
 \newcommand{\mobileSymbol}{\faMobilePhone}
 \newcommand{\githubSymbol}{\faGithub}
+\newcommand{\giteeSymbol}{\faGit}
 
 \newcommand\link[2]{\color{linkcolor}\href{#1}{#2}\color{Black} }
 \newcommand\important[1]{\textbf #1}
@@ -161,8 +165,17 @@
 \newcommand{\cvtag}[1]{%
   %\tikz[baseline]\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
 \begin{tikzpicture}
-	\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
+	\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.4ex,text height=2ex,text depth=.25ex]{#1};
 \end{tikzpicture}	  
+}
+
+% Create a chinese tag
+% Usage: \cvtag{<tag label>}
+\newcommand{\cvtagcn}[1]{%
+	%\tikz[baseline]\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
+	\begin{tikzpicture}
+	\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.4ex,text height=2ex,text depth=.25ex]{#1};
+	\end{tikzpicture}	  
 }
 
 % Render author's name
@@ -225,6 +238,7 @@
 % Render author's github (optional)
 % Usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\sociallink{\githubSymbol}{https://www.github.com/#1}{github.com/#1}}           % Github icon + URL
+\newcommand*{\gitee}[1]{\sociallink{\giteeSymbol}{https://www.gitee.com/#1}{gitee.com/#1}}           % Github icon + URL
 
 % Render author's email (optional)
 % Usage: \email{<email adress>}
@@ -271,16 +285,17 @@
 			\end{minipage}  
 		\ifdef{\@photodiameter}{
 			\begin{minipage}{\@photodiameter}
-				\begin{tikzpicture}%
-				\node[circle, text=white, minimum size=2.5cm,
-				path picture={\node at (path picture bounding box.center){
-						\includegraphics[width=2.5cm]{\@photo}
-					};
-				}]{ };
-				\end{tikzpicture}				
+				\includegraphics[width=2.0cm]{\@photo}
+				% \begin{tikzpicture}%
+				% \node[rectangle , text=white, minimum size=2.5cm,
+				% path picture={\node at (path picture bounding box.center){
+				% 		\includegraphics[width=2.5cm]{\@photo}
+				% 	};
+				% }]{ };
+				% \end{tikzpicture}				
 			\end{minipage}
 		}{}
-	    \resumetitle{\@tagline}
+	    % \resumetitle{\@tagline}  %!!!!!!!!!!!!! uncommit if use
 	}{
 	    \ifundef{\@photodiameter}{
 			\begin{minipage}{\linewidth}     	
@@ -294,20 +309,13 @@
 			\end{minipage}  	    
 		\ifdef{\@photodiameter}{
 			\begin{minipage}{\@photodiameter}
-%				\begin{tikzpicture}%
-%				\node[circle, text=white, minimum size=2.5cm,
-%				path picture={\node at (path picture bounding box.center){
-%						\includegraphics[width=2.5cm]{\@photo}
-%					};
-%				}]{ };
-%				\end{tikzpicture}		
-				\begin{tikzpicture}%
-				\node[text=white, minimum width=2.8cm, minimum height=2.8cm, %minimum size=2.8cm,
-				path picture={\node at (path picture bounding box.center){
-						\includegraphics[width=2.5cm]{\@photo}
-					};
-				}]{ };
-				\end{tikzpicture}			
+			      \begin{tikzpicture}%
+					\node[circle, text=white, minimum size=2.5cm,
+						path picture={\node at (path picture bounding box.center){
+							\includegraphics[width=2.5cm]{\@photo}
+						};
+					}]{ };
+			      \end{tikzpicture}				
 			\end{minipage} 			
 %      \begin{minipage}{\@photodiameter}
 %      	\tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
@@ -359,6 +367,31 @@
   \end{longtable}
 }
 
+
+% Render an experience in the experiences environment
+% Usage: 
+% \tags {<Technology list>}
+
+\newcommand\tags[1]{
+	\foreach \n in {#1}{\cvtagcn{\n}} 
+}
+
+
+
+% Render an experience in the experiences environment
+% Usage: 
+% \experience
+%  {<End date>}      {<Title>}{<Enterprise>}{<Country>}
+%  {<Start date}     {
+%                      <Experience description (Could be a list)>
+%                    }
+\newcommand\activity[6]{
+  \textsc{#1}    & \textsc{#2, #3, #4}   								\\*
+  \textsc{#5}    & \begin{minipage}[t]{\rightcolumnlength}
+  					         #6
+                   \end{minipage}										\\
+  }
+
 % Render an experience in the experiences environment
 % Usage: 
 % \experience
@@ -392,5 +425,6 @@
                    	\end{minipage}										\\*
                  & \footnotesize{\foreach \n in {#9}{\cvtag{\n}}} 	\\
   }
+
 
 \newcommand\emptySeparator{\multicolumn{2}{c}{}\\}

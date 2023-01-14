@@ -6,93 +6,110 @@
 % Author:
 % Junhao Hua
 
+% “STAR”法则
+% 情境（Stuation）：写出你的工作背景
+% 任务（Task）：我负责做什么
+% 行动（Action）：我做了什么
+% 结果（Result）：我的工作取得了什么样的结果
 
-%Section: Work Experience at the top
-\sectionTitle{Projects \& Experiences}{\faCode}
+\sectionTitle{项目经历}{\faCode}
  
 \begin{experiences}
-	
-		
+  \experience
+  {2023年01月} {CCF BDCI 2022 基于文心CV大模型的智慧城市视觉多任务识别}{赛题项目}{ }
+  {2022年09月} {
+    赛题大意为神经架构性能预测，即给出多个不同的神经网络，选手需要根据神经网络的结构，预测这些网络的性能相对排名；训练集大小为500，预测集大小为90k。
+    \begin{itemize}
+      \item  作为组长，负责前期调研、Baseline分析、任务分配；
+      \item  搭建项目整体框架，统一开发实验流程，实现测试自动化，方便团队进行模型的选择及调参；
+      \item  负责后续决赛材料筹备，决赛答辩；
+    \end{itemize}
+    在赛题中，我创新性的将传统算法与机器学习模型相结合，为团队取得了巨大优势，在Leaderboard A/B上均遥遥领先第二名，并顺利通过答辩获得冠军。 \\
+    AI Studio项目地址：\link{https://aistudio.baidu.com/aistudio/projectdetail/5035322}{【2022 CCF BDCI 基于文心CV大模型的智慧城市视觉多任务识别】第1名方案}
+                }
+                {Python, TensorFlow, 数据挖掘, 机器学习, 神经架构搜索}
+\emptySeparator	
  \experience
-    {May 2015}   {Computer vision and image processing}{ZJU }{C/Matlab/Python}
-    {Oct 2013} {
-                      \begin{itemize}
-                        \item \emph{Object Recognition} based on SIFT feature implemented by Matlab mixed with C.
-                        \item \emph{Recommender Systems} based on latent factor models and matrix factorization.                  
-                        \item Implementation of \emph{{Image Seamless Editing}} by solving Poisson equations.
-                        \item \emph{Image Denoising} based on non-linear anistropic diﬀusion techniques.
-                        \item \faGithub: 
-                        \link{https://github.com/huajh/sift}{sift}, 
-                        \link{https://github.com/huajh/mf_re_sys}{MFResys},
-                        \link{https://github.com/huajh/Poisson_image_editing}{PoissonImageEditing},
-                        \link{https://https://github.com/huajh/Image_denoising}{ImageDenoising}.                                                                                       
-                      \end{itemize}
-                    }
-                    {Object Recognition, Image Processing, Recommender Systems, Python}
+    {2022年09月} {华为openGauss-Mysql兼容性时间类型相关函数开发合作项目}{校企合作项目}{ }
+    {2022年04月} {
+      基于《华为openGauss兼容MySQL时间数据类型开发合作项目》，继续在openGuass数据库中对MySQL时间类型函数进行兼容开发。
+      \begin{itemize}
+        \item  主要负责MySQL源码调研、兼容性方案设计、边界范围的划定；
+        \item  项目中期的代码开发及文档撰写；
+        \item  在开发中建立了函数兼容性自动化测试的流程，大幅提高了开发和测试的效率；
+      \end{itemize}
+      此项目还被导师作为数据库课程的课程实践，因此我还作为助教，参与课程实践的答疑及评审工作。
+                  }
+                  {C/C++, SQL, openGauss数据库, Mysql数据库}
   \emptySeparator
   \experience
-    {Apr 2014} {Action/Behavior Recognition in Videos}{ZJU}{ Matlab}
-    {Feb 2014}    {
-                      \begin{itemize}
-                        \item Extract the spatio-temporal features and obtain "Bag of words" represetation by clustering (k-means) the extracted features; 
-                        \item Infer the posterior by pLSA/LDA (unsupervised Learning) or by simple classfications (KNN, SVM);                    
-                        \item Propose a simple method called 'voting' to achieve multiple actions recogintion task.
-                        \item \faGithub: \link{https://github.com/huajh/action_recognition} {github.com/huajh/action\_recognition}                                                                                          
-                      \end{itemize}
-                    }
-                    {Action Recoginition, Machine Learning, Clustering, LDA, "Bag of Words" Representation}
+    {2022年04月} {华为openGauss-MySQL在线迁移工具支持迁移对象开发合作项目}{校企合作项目}{}
+    {2022年01月} {
+      基于chameleon开发MySQL到openGauss的全量对象迁移工具，迁移的对象包括所有table、view、自定义函数、存储过程、trigger等。 \\
+      MySQL所使用的sql语言与openGauss所支持的pgplsql语言不完全兼容，需要涉及到sql语言翻译工作，这一部分难度较大。
+      经过努力，这部分我们使用了阿里的druid来对MySQL的语句进行解析建立AST树，通过重载的方式，遍历AST树翻译出其对应的gpglsql语句。
+      \begin{itemize}
+        \item  负责前期Mysql与og的差异分析、sql翻译工具的调研测试、druid的流程探索；
+        \item  项目中期Druid重载开发工作，开发进度统筹；
+        \item  撰写测试方案、测试用例；
+      \end{itemize}
+                }
+                {JAVA, Python, SQL, openGauss数据库, Mysql数据库}
+	
+  \emptySeparator
+  \experience
+  {2022年01月} {华为openGauss兼容MySQL时间数据类型开发合作项目}{校企合作项目}{}
+  {2021年10月} {
+    对华为openGauss数据库进行功能扩展，对openGauss兼容MySQL时间数据类型作兼容性开发。
+    \begin{itemize}
+      \item  作为实验室第一个og项目，在没有开发文档、资料极少的情况下，仅凭借用户手册及gdb调试，定位功能模块代码，并推断数据类型注册流程、处理流程。
+      \item  完成完成year,year2类型的方案设计、核心代码的实现及部分周边功能函数的支持；
+      \item  添加fastcheck测试用例、撰写og升级脚本；
+    \end{itemize}
+    由于og的兼容性开发一直在持续进行，后续合入代码可能引起兼容性问题，我还负责此项目的后续问题的修复；
+              }
+              {C/C++, SQL, openGauss数据库, Mysql数据库}
 
-  \emptySeparator
-  \experience
-  {May 2013} {Brain MR image segmentation}{ZJUT}{Bachelor Thesis}
-  {Dec 2012 }    {
-				  	\begin{itemize}
-				  		\item Apply the GMM, student-t mixture model, and Dirichlet process based infinite mixture modelto the brain MR image clustering problem; 
-				  		\item Derive the detail variational Bayesian inference process.
-				  		\item Improve these three algorithms by using laplacian graph (manifold learning); 				  	              
-				  		\item \faGithub: \link{https://github.com/huajh/variational_bayesian_clusterings} {github.com/huajh/variational\_bayesian\_clusterings}                                                                                    
-				  	\end{itemize}
-				  }
-				  {Mixture Model, Clustering, Dirichlet Process, Variational Bayes, Manifold Learnig}
-				  
-  \emptySeparator
-  \experience
-  {Nov 2012} {C/C++ Engineer Internship}{R\&D}{State Street (Hangzhou), China}
-  {Jul 2012 }    {
-  	\begin{itemize}
-  		\item  Responsible for the maintenance and development of Princeton Financial Systems. 
-  		\item As well as in charge of improving the performance of the system by integrating new technologies.
-  	\end{itemize}
-  }
-  {C/C++ programming, C performance optimization, portfolio}
+  % \emptySeparator
+  % \experience
+  % {2012年11月} {C/C++ 工程师实习生}{研发部分}{道富信息科技（浙江）有限公司， 杭州}
+  % {2012年7月}    {
+  % 	\begin{itemize}
+  % 		\item  负责\link{http://www.statestreet.com/solutions/by-capability/ssgx/software-solutions/accounting.html}{Princeton Financial Systems}底层技术的维护和开发；
+  % 		\item  将旧系统中C语言写的部分重构成C++模块，并优化旧系统的性能。
+  % 	\end{itemize}
+  % }
+  % {C/C++编程, 性能优化}
   	
+  % \emptySeparator
+  % \experience
+  % {2012年7月} {项目组成员}{智能系统研究所}{计算机学院，浙江工业大学}
+  % {2011年5月 }    {
+	% 			  	\begin{itemize}
+	% 			  		\item  2011年10月- 2012年5月, 研究\emph{基于空间复杂网络的交通路由算法}；
+	% 			  		主要思想是通过\emph{潜在度量空间}建立空间网络模型，设计基于全局和局部信息的路由策略及其导航性能。
+	% 			  		\item  2011年5月 - 9月,  以Microsoft Kinect SDK (C\#)为开发工具编程实现\emph{PPT体感操控系统设计}。
+	% 			  	\end{itemize}
+	% 			  }
+	% 			  {complex networks, kinect, C\#}
 
-  \emptySeparator
-  \experience
-  {Jul 2012} {Member of project team}{Institute of intelligent systems}{ZJUT}
-  {May 2011 }    {
-				  	\begin{itemize}
-				  		\item  Oct 2011-May 2012, write a paper \emph{Traffic routing algorithm based on the spatial complex networks};
-				  		\item  May-Sep 2011, work on the project: \emph{Motion Sensing PPT based on Kinect} | \emph{Programmer}.
-				  	\end{itemize}
-				  }
-				  {complex networks, kinect, C\#}
-	  				  
-  \emptySeparator
-  \experience
-  { Dec 2011} {\emph{Tiny Software development}}{ZJUT}{C/C++/JAVA}
-  {Oct 2011 }    {
-				  	\begin{itemize}
-				  		\item Oct-Dec 2011, \emph{Online Works Show Platform} | \emph{Leader}. I designed and implemented a lightweight 
-						  		relational object JDBC package, which is used for the programming of the server. 		  		
-						  		Got the 2\textsuperscript{nd} place of the contest judged by the TaoBao UED.     
-						  		\faGithub: \link{https://github.com/huajh/showplatform}{github.com/huajh/showplatform}                                                                           
-				  		\item Nov 2011, \emph{Unix File System} | \emph{Independent developer}. The system is implemented by the C/C++. It has basic shell commands, well performed
-						  		memory management,  as well as the users management, and it supports parallel operation.
-						  		\faGithub: \link{https://github.com/huajh/unix_file_sys}{github.com/huajh/unix\_file\_sys}
-				  	\end{itemize}
-				  }
-				  {JAVA, Unix, software development, Database, Sql Server}
+	
+		  				  
+  % \emptySeparator
+  % \experience
+  % {2011年12月} {\emph{软件开发}}{浙江工业大学}{本科小项目}
+  % {2011年10月}    {
+	% 			  	\begin{itemize}
+	% 			  		\item Oct-Dec 2011, \emph{竞赛作品展示平台} | JavaBeans+Servlet+Jsp框架| \emph{队长}. 
+	% 			  		独立设计并实现了JDBC的轻量级对象关系封装,并用于服务端开发， 淘宝UED评审获第二名。    
+	% 					  		\faGithub: \link{https://github.com/huajh/showplatform}{github.com/huajh/showplatform}                                                                           
+	% 			  		\item Nov 2011, \emph{Unix文件系统} | C/C++ | \emph{独立开发}. 
+	% 					  		实现系统的格式化、安装、加载，用户组管理，打开文件管理，内存分配，文件读写，以及基本的shell命令，
+	% 					  		包括目录文件的添加、删除、重命名、拷贝等。
+	% 					  		\faGithub: \link{https://github.com/huajh/unix_file_sys}{github.com/huajh/unix\_file\_sys}
+	% 			  	\end{itemize}
+	% 			  }
+	% 			  {软件开发, 数据库, JAVA, Unix, Sql Server}
 	
 		
 \end{experiences}
