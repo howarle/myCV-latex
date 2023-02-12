@@ -48,7 +48,7 @@
 
 % Dependences
 %A Few Useful Packages
-\RequirePackage[frenchb]{babel}
+% \RequirePackage[frenchb]{babel}
 %\RequirePackage[utf8]{luainputenc}  % luatex
 \RequirePackage{fontspec} 					                 % for loading fonts
 \RequirePackage{url,parskip} 	    % other packages for formatting
@@ -143,7 +143,7 @@
 \setlength{\rightcolumnlength}{14.8cm}
 
 \newlength{\leftcolumn}
-\setlength{\leftcolumn}{2.5cm}
+\setlength{\leftcolumn}{2.6cm}
 
 % Font Awesome icons aliases
 \newcommand{\mailSymbol}{\faEnvelope}
@@ -341,9 +341,7 @@
 
 % Render a scholarshipentry in the scolarship environment
 % Usage: \scholarshipentry{<date>}{<description>}
-\newcommand\scholarshipentry[2]{
-  #1    &  #2 \\
-}
+\newcommand\scholarshipentry[2]{#1 & #2 \\}
 
 % Define the 'skills' environment
 \newenvironment{skills}{%
@@ -407,6 +405,22 @@
                    \end{minipage}										\\*
                  & \footnotesize{\foreach \n in {#7}{\cvtag{\n}}} 	\\
   }
+
+% Render a new experience in the experiences environment
+% Usage: 
+% \experience_new
+%  {<End date> - <Start date>} {<Title>}{<Enterprise>}{<Country>}
+%                    {
+%                      <Experience description (Could be a list)>
+%                    }
+%                    {<Technology list>}
+\newcommand\experiencenew[4]{
+	\textsc{#1}    & \textsc{#2}   								\\*
+	               & \begin{minipage}[t]{\rightcolumnlength}
+								 #3
+					 \end{minipage}										\\*
+				   & \footnotesize{\foreach \n in {#4}{\cvtag{\n}}} 	\\
+	}
 
 % Render a consultant experience in the experiences environment
 % Usage: 
