@@ -239,6 +239,7 @@
 % Usage: \github{<github-nick>}
 \newcommand*{\github}[1]{\sociallink{\githubSymbol}{https://www.github.com/#1}{github.com/#1}}           % Github icon + URL
 \newcommand*{\gitee}[1]{\sociallink{\giteeSymbol}{https://www.gitee.com/#1}{gitee.com/#1}}           % Github icon + URL
+\newcommand*{\Blog}[1]{\sociallink{\faBold}{https://#1}{#1}}      
 
 % Render author's email (optional)
 % Usage: \email{<email adress>}
@@ -285,14 +286,14 @@
 			\end{minipage}  
 		\ifdef{\@photodiameter}{
 			\begin{minipage}{\@photodiameter}
-				\includegraphics[width=2.0cm]{\@photo}
-				% \begin{tikzpicture}%
-				% \node[rectangle , text=white, minimum size=2.5cm,
-				% path picture={\node at (path picture bounding box.center){
-				% 		\includegraphics[width=2.5cm]{\@photo}
-				% 	};
-				% }]{ };
-				% \end{tikzpicture}				
+				% \includegraphics[width=2.0cm]{\@photo}
+				\begin{tikzpicture}%
+				\node[circle , text=white, minimum size=2.5cm,
+				path picture={\node at (path picture bounding box.center){
+						\includegraphics[width=2.5cm]{\@photo}
+					};
+				}]{ };
+				\end{tikzpicture}				
 			\end{minipage}
 		}{}
 	    % \resumetitle{\@tagline}  %!!!!!!!!!!!!! uncommit if use
